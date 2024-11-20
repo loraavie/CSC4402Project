@@ -39,7 +39,7 @@ def main_menu():
         elif choice == "7":
             manage_branches()
         elif choice == "8":
-            print("Exiting the system. Goodbye!")
+            print("Thank you for your service. Goodbye!")
             break
         else:
             print("Invalid choice. Please try again.")
@@ -71,9 +71,21 @@ def manage_clients():
         else:
             print("Invalid choice. Please Try Again.")
 
-#def add_client():
+def add_client():
+    name = input("Enter Client Name: ")
+    acct_num = input("Enter Account Number: ")
+    dob = input("Enter Date of Birth (MM-DD-YYYY): ")
+    risk_tolerance = input("Enter Risk Tolerance (Low, Medium, High): ")
+    phone_number = input("Enter Phone Number: ")
 
-#def update_client():
+    #need to add something to connect it to the database
+
+def update_client():
+    client_id = input("Enter The Client ID to Update: ")
+    name = input("Enter the Client Name (press enter to skip): ")
+    phone_number = input("Enter the new Phone Number (press enter to skip): ")
+
+     #need to add something to connect it to the database
 
 def manage_accounts():
     while True:
@@ -101,9 +113,22 @@ def manage_accounts():
         else:
             print("Invalid choice. Please Try Again.")
 
-#def add_account():
+def add_account():
+    acct_type = input("Enter Account Type (Checkings, Savings, etc.): ")
+    balace = input("Enter Balance: ")
+    status = input("Enter Status (Active, Inactive, Closed): ")
+    client_id = input("Enter Client ID: ")
+    broker_id = input("Enter Broker ID: ")
 
-#def update_account():
+    #need to add something to connect it to the database
+
+def update_account():
+    acct_num = input("Enter The Account Number to Update: ")
+    acct_type = input("Enter the Account Type (press enter to skip): ")
+    balace = input("Enter the new Balance (press enter to skip): ")
+    status = input("Enter the new Status (press enter to skip): ")
+
+     #need to add something to connect it to the database
 
 def manage_brokers():
     while True:
@@ -131,9 +156,21 @@ def manage_brokers():
         else:
             print("Invalid choice. Please Try Again.")
 
-#def add_brokers():
+def add_brokers():
+    name = input("Enter Broker Name: ")
+    license_num = input("Enter The License Number: ")
+    experience = input("Enter Experience Level (1-4): ")
+    branch_id = input("Enter Branch ID: ")
 
-#def update_brokers():
+    #need to add something to connect it to the database
+
+def update_brokers():
+    broker_id = input("Enter The Broker ID to Update: ")
+    name = input("Enter the Broker Name (press enter to skip): ")
+    license_num= input("Enter the new License Number (press enter to skip): ")
+    experience = input("Enter the new Experience Level (press enter to skip): ")
+    branch_id = input("Enter the new Branch ID (press enter to skip): ")
+     #need to add something to connect it to the database
 
 def manage_transactions():
     while True:
@@ -141,9 +178,8 @@ def manage_transactions():
         print("=" * 40)
         print("1. View All Transactions")
         print("2. Add Transaction")
-        print("3. Update Transactions")
-        print("4. Delete Transactions")
-        print("5. Back to Main Menu")
+        print("3. Delete Transactions")
+        print("4. Back to Main Menu")
         print("=" * 40)
 
         choice = input("Enter your choice: ").strip()
@@ -153,26 +189,29 @@ def manage_transactions():
         elif choice == "2":
             add_transaction()
         elif choice == "3":
-            update_transaction()
-        elif choice == "4":
             delete_record("Transactions", "Transaction_ID")
-        elif choice == "5":
+        elif choice == "4":
             break
         else:
             print("Invalid choice. Please Try Again.")
 
-#def add_transaction():
+def add_transaction():
+    transaction_type = input("Enter Transaction Type (Deposit, Withdrawl): ")
+    transaction_date = input("Enter Transaction Date (MM-DD-YYYY): ")
+    amount = input("Enter Amount: ")
+    acct_num = input("Enter Account Number: ")
+    client_id = input("Enter Client ID: ")
 
-#def update_transaction():
+    #need to add something to connect it to the database
+
 def manage_trades():
     while True:
         print("\nManage Trades")
         print("=" * 40)
         print("1. View All Trades")
         print("2. Add Trades")
-        print("3. Update Trades")
-        print("4. Delete Trades")
-        print("5. Back to Main Menu")
+        print("3. Delete Trades")
+        print("4. Back to Main Menu")
         print("=" * 40)
 
         choice = input("Enter your choice: ").strip()
@@ -182,17 +221,23 @@ def manage_trades():
         elif choice == "2":
             add_trade()
         elif choice == "3":
-            update_trade()
-        elif choice == "4":
             delete_record("Trade", "Trade_ID")
-        elif choice == "5":
+        elif choice == "4":
             break
         else:
             print("Invalid choice. Please Try Again.")
 
-#def add_trade():
+def add_trade():
+    trade_type = input("Enter Trade Type (Buy/Sell): ")
+    trade_date = input("Enter Trade Date (YYYY-MM-DD): ")
+    quantity = input("Enter Quantity: ")
+    price_per = input("Enter Price Per Unit: ")
+    broker_id = input("Enter Broker ID: ")
+    acct_num = input("Enter Account Number: ")
+    stock_id = input("Enter Stock ID: ")
 
-#def update_trade():
+    #need to add something to connect it to the database
+
 def manage_stocks():
     while True:
         print("\nManage Stocks")
@@ -219,9 +264,22 @@ def manage_stocks():
         else:
             print("Invalid choice. Please Try Again.")
 
-#def add_stocks():
+def add_stocks():
+    name = input("Enter Client Name: ")
+    acct_num = input("Enter Account Number: ")
+    dob = input("Enter Date of Birth (MM-DD-YYYY): ")
+    risk_tolerance = input("Enter Risk Tolerance (Low, Medium, High): ")
+    phone_number = input("Enter Phone Number: ")
 
-#def update_stocks():
+    #need to add something to connect it to the database
+
+def update_stocks():
+    client_id = input("Enter The Client ID to Update: ")
+    name = input("Enter the new Client Name (press enter to skip): ")
+    phone_number = input("Enter the new Phone Number (press enter to skip): ")
+
+     #need to add something to connect it to the database
+
 def manage_branches():
     while True:
         print("\nManage Branches")
@@ -248,9 +306,21 @@ def manage_branches():
         else:
             print("Invalid choice. Please Try Again.")
 
-#def add_branch():
+def add_branch():
+    location = input("Enter Branch Location: ")
+    manager = input("Enter Manager Name: ")
+    manager_id = input("Enter Manager ID: ")
+    contact = input("Enter Contact Number: ")
 
-#def update_branch():
+    #need to add something to connect it to the database
+
+def update_branch():
+    branch_id = input("Enter Branch ID to update: ")
+    location = input("Enter the new Location (press enter to skip): ")
+    manager = input("Enter the new Manager Name (press enter to skip): ")
+    contact = input("Enter the new Contact Number (press enter to skip): ")
+     #need to add something to connect it to the database
+
 # Main Execution
 if __name__ == "__main__":
     main_menu()
