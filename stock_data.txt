@@ -1,0 +1,100 @@
+1 AAPL 12.50 Technology 185.50
+2 MSFT 10.25 Technology 340.20
+3 AMZN 15.10 Consumer Discretionary 128.75
+4 GOOGL 9.80 Communication Services 142.65
+5 TSLA 18.75 Consumer Discretionary 232.50
+6 NVDA 20.35 Technology 473.10
+7 META 13.40 Communication Services 312.75
+8 JPM 7.50 Financials 142.30
+9 V 11.20 Financials 240.50
+10 WMT 5.90 Consumer Staples 162.80
+11 XOM 6.75 Energy 111.45
+12 CVX 5.40 Energy 156.30
+13 KO 4.10 Consumer Staples 61.50
+14 PEP 4.50 Consumer Staples 178.40
+15 COST 6.00 Consumer Staples 573.90
+16 DIS 8.00 Communication Services 92.75
+17 NFLX 16.50 Communication Services 412.50
+18 PYPL 7.25 Technology 67.85
+19 INTC 3.80 Technology 36.50
+20 AMD 14.30 Technology 123.75
+21 IBM 2.70 Technology 140.90
+22 ORCL 11.90 Technology 129.20
+23 T 3.00 Communication Services 14.20
+24 VZ 2.20 Communication Services 31.75
+25 QCOM 8.50 Technology 112.45
+26 MRK 4.60 Health Care 108.30
+27 PFE 1.50 Health Care 34.25
+28 JNJ 2.80 Health Care 162.70
+29 UNH 7.90 Health Care 525.60
+30 ABBV 6.80 Health Care 154.40
+31 ABT 4.30 Health Care 96.85
+32 LLY 12.60 Health Care 582.40
+33 CSCO 3.50 Technology 54.75
+34 ADBE 14.75 Technology 630.20
+35 CRM 10.10 Technology 212.35
+36 UPS 5.20 Industrials 175.50
+37 BA 7.10 Industrials 204.80
+38 CAT 6.00 Industrials 274.25
+39 DE 8.00 Industrials 392.70
+40 RTX 4.90 Industrials 81.65
+41 GE 9.30 Industrials 115.20
+42 HON 3.80 Industrials 187.35
+43 NKE 8.70 Consumer Discretionary 98.50
+44 MCD 7.50 Consumer Discretionary 280.30
+45 HD 5.60 Consumer Discretionary 346.75
+46 LOW 4.50 Consumer Discretionary 210.85
+47 SBUX 8.10 Consumer Discretionary 99.50
+48 TGT 6.25 Consumer Discretionary 131.40
+49 BKNG 14.10 Consumer Discretionary 3056.50
+50 AMGN 3.90 Health Care 264.50
+51 BIIB 2.70 Health Care 260.40
+52 REGN 4.60 Health Care 860.30
+53 ZTS 5.50 Health Care 180.40
+54 ISRG 6.70 Health Care 325.80
+55 DUK 2.30 Utilities 90.50
+56 SO 2.50 Utilities 67.85
+57 NEE 3.20 Utilities 67.50
+58 D 2.10 Utilities 45.30
+59 AEP 1.90 Utilities 83.45
+60 WEC 1.80 Utilities 89.20
+61 SPGI 9.10 Financials 423.75
+62 MCO 8.75 Financials 359.80
+63 CME 7.20 Financials 210.90
+64 GS 5.90 Financials 312.40
+65 BAC 4.80 Financials 27.85
+66 C 3.10 Financials 42.30
+67 USB 2.50 Financials 33.25
+68 BLK 10.40 Financials 692.40
+69 TROW 6.50 Financials 105.80
+70 SCHW 4.40 Financials 54.60
+71 AMT 8.10 Real Estate 175.20
+72 PLD 7.50 Real Estate 120.75
+73 EQIX 10.90 Real Estate 705.30
+74 WELL 5.30 Real Estate 71.45
+75 SPG 4.60 Real Estate 111.80
+76 O 4.00 Real Estate 51.90
+77 EQR 3.20 Real Estate 62.40
+78 AAPL 12.50 Technology 185.50
+79 MSFT 10.25 Technology 340.20
+80 AMZN 15.10 Consumer Discretionary 128.75
+81 GOOGL 9.80 Communication Services 142.65
+82 TSLA 18.75 Consumer Discretionary 232.50
+83 NVDA 20.35 Technology 473.10
+84 META 13.40 Communication Services 312.75
+85 JPM 7.50 Financials 142.30
+86 V 11.20 Financials 240.50
+87 WMT 5.90 Consumer Staples 162.80
+88 XOM 6.75 Energy 111.45
+89 CVX 5.40 Energy 156.30
+90 KO 4.10 Consumer Staples 61.50
+91 PEP 4.50 Consumer Staples 178.40
+92 COST 6.00 Consumer Staples 573.90
+93 DIS 8.00 Communication Services 92.75
+94 NFLX 16.50 Communication Services 412.50
+95 PYPL 7.25 Technology 67.85
+96 INTC 3.80 Technology 36.50
+97 AMD 14.30 Technology 123.75
+98 IBM 2.70 Technology 140.90
+99 ORCL 11.90 Technology 129.20
+100 T 3.00 Communication Services 14.20
