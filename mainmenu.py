@@ -1,17 +1,22 @@
-
-''' May need to add some sort of connection to the database 
+import mysql.connector
 def get_connection():
-    return mysql.connector.connect(
+    connection = mysql.connector.connect(
         host = "localhost",
-        user = "your_username",
-        password = "your_password",
-        database = "Brokerage"
+        user = "username",
+        password = "password",
+        database = "brokerage"
     )
-'''
+    if connection.is_connected():
+        print("Connected to Database")
+    else: print("Connection Failed. Please check credentials provided.")
+    cursor = connection.cursor()
+    return connection, cursor
+
 
 def main_menu():
     while True:
-        print("\033[H\033[J")
+        #commented out bc it throws error on my machine
+        #print("\033[H\033[J")
         
         # Main Menu Header
         print("=" * 40)
@@ -47,7 +52,7 @@ def main_menu():
         elif choice == "7":
             manage_branches()
         elif choice == "8":
-            print("Thank you for your service. Goodbye!")
+            print("Thank you for your patronage. Goodbye!")
             break
         else:
             print("Invalid choice. Please try again.")
@@ -73,27 +78,69 @@ def manage_clients():
         elif choice == "3":
             update_client()
         elif choice == "4":
-            delete_record("Clients", "Client_ID")
+            delete_record()
         elif choice == "5":
             break
         else:
             print("Invalid choice. Please Try Again.")
+def view_records(table):
+    # SQL SELECT Query
+    query = "SELECT * FROM clients"
+
+    # Execute the query
+    cursor.execute(query)
+
+    # Fetch all rows
+    rows = cursor.fetchall()
+
+    # Display the results
+    for row in rows:
+        print(row)
 
 def add_client():
+    client_ID = input("Enter Client ID: ")
     name = input("Enter Client Name: ")
     acct_num = input("Enter Account Number: ")
-    dob = input("Enter Date of Birth (MM-DD-YYYY): ")
+    dob = input("Enter Date of Birth (YYYY-MM-DD): ")
     risk_tolerance = input("Enter Risk Tolerance (Low, Medium, High): ")
     phone_number = input("Enter Phone Number: ")
 
+    query = "INSERT INTO clients(client_id, client_name, Account_Number, DOB, Risk_Tolerance, Phone_Number) VALUES (%s, %s, %s, %s, %s, %s)"
+    values = (client_ID, name, acct_num, dob, risk_tolerance, phone_number)
+    cursor.execute(query, values)
     #need to add something to connect it to the database
 
 def update_client():
     client_id = input("Enter The Client ID to Update: ")
-    name = input("Enter the Client Name (press enter to skip): ")
-    phone_number = input("Enter the new Phone Number (press enter to skip): ")
+    num = input("What would you like to modify about this client's data? (Name, DOB, Risk Tolerance, Phone Number): \n(1) Name\n(2) DOB\n(3) Risk Tolerance\n(4) Phone Number\n")
+    if(num == "1"):
+        name = input("Enter the new Client Name: ")
+        query = "UPDATE clients SET client_name = %s WHERE client_id = %s"
+        values = (name, client_id)
+        cursor.execute(query, values)
+    elif(num == "2"):
+        dob = input("Enter the new Date of Birth: ")
+        query = "UPDATE clients SET DOB = %s WHERE client_id = %s"
+        values = (dob, client_id)
+        cursor.execute(query, values)
+    elif(num == "3"):
+        risk_tolerance = input("Enter the new Risk Tolerance: ")
+        query = "UPDATE clients SET Risk_Tolerance = %s WHERE client_id = %s"
+        values = (risk_tolerance, client_id)
+        cursor.execute(query, values)
+    elif(num == "4"):
+        phone_number = input("Enter the new Phone Number: ")
+        query = "UPDATE clients SET Phone_Number = %s WHERE client_id = %s"
+        values = (phone_number, client_id)
+        cursor.execute(query, values)
+    else:
+        print("Invalid choice. Please Try Again.")
+def delete_record():
+    record_id = input(f"Enter the Client_ID to delete from clients: ")
+    query = f"DELETE FROM clients WHERE Client_ID = %s"
+    values = (record_id,)
+    cursor.execute(query, values)
 
-     #need to add something to connect it to the database
 
 def manage_accounts():
     while True:
@@ -331,4 +378,5 @@ def update_branch():
 
 # Main Execution
 if __name__ == "__main__":
+    connection, cursor = get_connection()
     main_menu()
