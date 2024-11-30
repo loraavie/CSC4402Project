@@ -32,6 +32,7 @@ CREATE TABLE Stocks (
 CREATE TABLE Clients (
     Client_ID INT AUTO_INCREMENT PRIMARY KEY,
     Client_Name VARCHAR(100),
+    Account_Number int,
     DOB DATE,
     Risk_Tolerance VARCHAR(10),
     Phone_Number VARCHAR(15)
