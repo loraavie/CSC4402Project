@@ -25,8 +25,7 @@ NOTE: All of the CLI equivalent's instructions assume that you are at the home p
 3) Goal: Add a new broker to the broker table.
   SQL Query: insert into broker(Broker_ID, Broker_Name, License_Num, Experience_LVL, Branch_ID)
              values (51, "Nathaniel", "32E6FKL9", 4, 103);
-  CLI Equivalent: Enter 3 to manage brokers, enter 2 to add brokers, when prompted enter a broker_ID of 51, Broker Name of Nathaniel, License Number of 32E6FKL9, Experience Level fo 4, and Branch ID of 
-103. This should successfully insert your new broker into the database. 
+  CLI Equivalent: Enter 3 to manage brokers, enter 2 to add brokers, when prompted enter a broker_ID of 51, Broker Name of Nathaniel, License Number of 32E6FKL9, Experience Level fo 4, and Branch ID of 103. This should successfully insert your new broker into the database. 
 
 4) Goal: Show all brokers that are currently in the broker table (This will show where we added Nathaniel)
   SQL Query: select * from broker;
