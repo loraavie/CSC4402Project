@@ -1,0 +1,38 @@
+SELECT Client_ID, Account_Number, Phone_Number
+FROM Clients
+WHERE Risk_Tolerance = 'High'
+-- above simple
+
+SELECT Broker.Broker_ID, Broker.Broker_Name
+FROM Broker
+JOIN Accounts ON Broker.Broker_ID = Accounts.Broker_ID
+JOIN Clients on Accounts.Client_ID = Clients.Client_ID
+WHERE Accounts.Acct_Type = 'Investment' and
+       Clients.Risk_Tolerance = 'High'
+GROUP BY Broker.Broker_ID, Broker.Broker_Name
+HAVING COUNT(BROKER.ID) >= 2
+-- finds brokers who manage more 2 or more investment accounts with high risk
+
+SELECT Trade_ID, AVG(Trade_Count) AS Avg_Trades_Per_Stock
+FROM (
+        SELECT COUNT(Trade.Trade_ID) AS Trade_Count
+        FROM Trade
+        JOIN Stocks ON Stocks.Stock_ID = Trade.Stock_ID
+        WHERE LEFT(Trade.Trade_Date, 4) = '2024'
+        GROUP BY Stocks.Stock_ID
+     ) AS StockTradeCounts;
+-- find the average number of trades per stock in 2024
+
+SELECT Branch_ID, COUNT(Accounts.Acct_NUM) as Accts_Managed
+From Branch
+JOIN Broker ON Branch.Branch_ID = Broker.Branch_ID
+JOIN Accounts ON Accounts.Broker_ID = Broker.Broker_ID
+GROUP BY Branch.Branch_ID
+--finding the number of accounts managed by each  branch
+
+
+SELECT Broker_ID, MAX(Trades.Quantity * Trades.Price_Per) as Top_Trade_By_Broker
+From Broker
+JOIN Trades ON Trades.Broker_ID = Broker.Broker_ID
+GROUP BY Broker.Broker_ID
+--finds the biggest trade done by each broker
