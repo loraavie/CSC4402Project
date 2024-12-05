@@ -1,4 +1,4 @@
-INSERT INTO Branch (Branch_ID, Location, Manager_Name, Region_ID, Phone) VALUES
+INSERT INTO Branch (Branch_ID, LocationOf, Manager, Manager_ID, Contact) VALUES
 (101, 'New_York', 'John Doe', 1, '212-555-1234'),
 (102, 'Los_Angeles', 'Sarah Smith', 2, '213-555-5678'),
 (103, 'Chicago', 'Michael Brown', 3, '312-555-9101'),
@@ -496,4 +496,3 @@ INSERT INTO trade (Trade_ID, Trade_Type, Trade_Date, Quantity, Price_Per, Broker
 (48, 'Sell', '2024-04-26', 35, 210.75, 48, 43685, 48),
 (49, 'Buy', '2024-05-10', 100, 70.50, 49, 91425, 49),
 (50, 'Sell', '2024-05-23', 40, 185.60, 50, 28394, 50);
-
