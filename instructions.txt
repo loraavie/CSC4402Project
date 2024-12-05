@@ -1,7 +1,7 @@
 INSTRUCTIONS FOR SETTING UP AND USING OUR DATABASE:
 
 Setting up:
-The database is made for MySQL, so having a working version of MySQL on your device is necessary for setup. Remember the username and password you use for setting up the database, because it will be necessary for using the CLI later. Once in whatever version of MySQL you choose to use, run db.sql, which will set up the initial database and schemas.
+The database is made for MySQL, so having a working version of MySQL on your device is necessary for setup. The CLI uses mySQL-connector which is installed with the command: pip install mysql-connector-python. Remember the username and password you use for setting up the database, because it will be necessary for using the CLI later. Once in whatever version of MySQL you choose to use, run db.sql, which will set up the initial database and schemas.
 Next, run InsertData.sql. This will insert all of the data for testing purposes into the database. Now your database should be initialized for running the test queries.
 
 
