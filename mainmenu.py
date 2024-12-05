@@ -8,8 +8,8 @@ def get_connection():
     try:
         connection = mysql.connector.connect(
             host="localhost",
-            user="root",  
-            password="password",  
+            user="root",  #change to your username
+            password="password",  #change to your password
             database="brokerage"  
         )
         if connection.is_connected():
@@ -21,7 +21,7 @@ def get_connection():
 
 def main_menu():
     while True:
-        print("\033[H\033[J")
+        #print("\033[H\033[J")
         
         # Main Menu Header
         print("=" * 40)
@@ -57,7 +57,7 @@ def main_menu():
         elif choice == "7":
             manage_branches()
         elif choice == "8":
-            print("Thank you for your service. Goodbye!")
+            print("Thank you for your patronage. Goodbye!")
             break
         else:
             print("Invalid choice. Please try again.")
@@ -126,9 +126,10 @@ def manage_clients():
             print("Invalid choice. Please Try Again.")
 
 def add_client():
+    clientID = input("Enter Client ID: ")
     name = input("Enter Client Name: ")
     acct_num = input("Enter Account Number: ")
-    dob = input("Enter Date of Birth (MM-DD-YYYY): ")
+    dob = input("Enter Date of Birth (YYYY-MM-DD): ")
     risk_tolerance = input("Enter Risk Tolerance (Low, Medium, High): ")
     phone_number = input("Enter Phone Number: ")
 
@@ -139,10 +140,10 @@ def add_client():
             cursor = connection.cursor()
             cursor.execute(
                 """
-                INSERT INTO Clients (Client_Name, Acct_Num, DOB, Risk_Tolerance, Phone_Number)
-                VALUES (%s, %s, %s, %s, %s)
+                INSERT INTO Clients (Client_ID, Client_Name, Account_Number, DOB, Risk_Tolerance, Phone_Number)
+                VALUES (%s, %s, %s, %s, %s, %s)
                 """,
-                (name, acct_num, dob, risk_tolerance, phone_number)
+                (clientID, name, acct_num, dob, risk_tolerance, phone_number)
             )
             connection.commit()
             print("Client added successfully.")
@@ -211,8 +212,9 @@ def manage_accounts():
             print("Invalid choice. Please Try Again.")
 
 def add_account():
+    acct_num = input("Enter Account Number: ")
     acct_type = input("Enter Account Type (Checkings, Savings, etc.): ")
-    balace = input("Enter Balance: ")
+    balance = input("Enter Balance: ")
     status = input("Enter Status (Active, Inactive, Closed): ")
     client_id = input("Enter Client ID: ")
     broker_id = input("Enter Broker ID: ")
@@ -224,10 +226,10 @@ def add_account():
             cursor = connection.cursor()
             cursor.execute(
                 """
-                INSERT INTO Accounts (Acct_Type, Balance, StatusOf, Client_ID, Broker_ID)
-                VALUES (%s, %s, %s, %s, %s)
+                INSERT INTO Accounts (Acct_Num, Acct_Type, Balance, StatusOf, Client_ID, Broker_ID)
+                VALUES (%s, %s, %s, %s, %s, %s)
                 """,
-                (acct_type, balance, status, client_id, broker_id)
+                (acct_num, acct_type, balance, status, client_id, broker_id)
             )
             connection.commit()
             print("Account added successfully.")
@@ -240,7 +242,7 @@ def add_account():
 def update_account():
     acct_num = input("Enter The Account Number to Update: ")
     acct_type = input("Enter the Account Type (press enter to skip): ")
-    balace = input("Enter the new Balance (press enter to skip): ")
+    balance = input("Enter the new Balance (press enter to skip): ")
     status = input("Enter the new Status (press enter to skip): ")
 
      #need to add something to connect it to the database
@@ -388,11 +390,12 @@ def manage_transactions():
             print("Invalid choice. Please Try Again.")
 
 def add_transaction():
-    transaction_type = input("Enter Transaction Type (Deposit, Withdrawl): ")
-    transaction_date = input("Enter Transaction Date (MM-DD-YYYY): ")
+    transaction_id = input("Enter Transaction ID: ")
+    transaction_type = input("Enter Transaction Type (Deposit, Withdrawal): ")
+    transaction_date = input("Enter Transaction Date (YYYY-MM-DD): ")
     amount = input("Enter Amount: ")
-    acct_num = input("Enter Account Number: ")
-    client_id = input("Enter Client ID: ")
+    acct_num = input("Enter a valid Account Number: ")
+    #client_id = input("Enter Client ID: ")
 
     #need to add something to connect it to the database
     connection = get_connection()
@@ -401,10 +404,10 @@ def add_transaction():
             cursor = connection.cursor()
             cursor.execute(
                 """
-                INSERT INTO Transactions (Transaction_Type, Transaction_Date, Amount, Acct_Num, Client_ID)
+                INSERT INTO Transactions (Transaction_ID, Transaction_Type, Transaction_Date, Amount, Acct_Num)
                 VALUES (%s, %s, %s, %s, %s)
                 """,
-                (transaction_type, transaction_date, amount, acct_num, client_id)
+                (transaction_id, transaction_type, transaction_date, amount, acct_num)
             )
             connection.commit()
             print("Transaction added successfully.")
@@ -493,11 +496,11 @@ def manage_stocks():
             print("Invalid choice. Please Try Again.")
 
 def add_stocks():
-    name = input("Enter Client Name: ")
-    acct_num = input("Enter Account Number: ")
-    dob = input("Enter Date of Birth (MM-DD-YYYY): ")
-    risk_tolerance = input("Enter Risk Tolerance (Low, Medium, High): ")
-    phone_number = input("Enter Phone Number: ")
+    stock_id = input("Enter Stock ID: ")
+    ticker = input("Enter Ticker: ")
+    return_value = input("Enter Return Value: ")
+    industry = input("Enter Industry: ")
+    current_price = input("Enter Current Price: ")
 
     #need to add something to connect it to the database
     connection = get_connection()
@@ -506,10 +509,10 @@ def add_stocks():
             cursor = connection.cursor()
             cursor.execute(
                 """
-                INSERT INTO Stocks (Ticker, ReturnValue, Industry, Current_Price)
+                INSERT INTO Stocks (Stock_ID, Ticker, ReturnValue, Industry, Current_Price)
                 VALUES (%s, %s, %s, %s)
                 """,
-                (ticker, return_value, industry, current_price)
+                (stock_id, ticker, return_value, industry, current_price)
             )
             connection.commit()
             print("Stock added successfully.")
@@ -520,9 +523,10 @@ def add_stocks():
             connection.close()
 
 def update_stocks():
-    client_id = input("Enter The Client ID to Update: ")
-    name = input("Enter the new Client Name (press enter to skip): ")
-    phone_number = input("Enter the new Phone Number (press enter to skip): ")
+    stock_id = input("Enter Stock ID to update: ")
+    ticker = input("Enter the new Ticker (press enter to skip): ")
+    current_price = input("Enter the new Current Price (press enter to skip): ")
+
 
      #need to add something to connect it to the database
     connection = get_connection()
